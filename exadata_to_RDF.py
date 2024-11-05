@@ -16,7 +16,7 @@ end_idx = int(inpts[4])
 dir_path = "../data/m100_3to12/year_month={}/".format(year_month)
 
 plugin = "ipmi_pub"
-plugin_df = pd.read_csv("raw_data/plugins/{}.csv".format(plugin.split("_")[0]))
+plugin_df = pd.read_csv("plugins/{}.csv".format(plugin.split("_")[0]))
 
 node_data = pd.read_parquet(os.path.join(dir_path,"plugin={}/metric={}/a_0.parquet".format(plugin,metric)))
 
