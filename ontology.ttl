@@ -1,0 +1,209 @@
+@prefix m100:           <http://cineca.com/exadata/m100/> .
+@prefix rdf:            <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:           <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:            <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc:             <http://purl.org/dc/elements/1.1/#> .
+@prefix xml:            <http://www.w3.org/XML/1998/namespace> .
+@base                   <http://cineca.com/exadata/m100/> .
+
+<http://cineca.com/exadata/m100/> rdf:type owl:Ontology ;
+                                        dc:title "m100_v1.7"@en;
+                                        dc:description "Cineca M100 - ExaData ontology"@en;
+                                        owl:versionInfo "1.7"@en;
+                                        dc:creator "Junaid Ahmed Khan";
+                                        dc:contributor "Martin Molan";
+                                        dc:contributor "Andrea Bartolini" .
+#################################################################
+
+###  Class Definitions (Number of Classes) 8 ###
+
+#  Class 1: Rack
+m100:Rack rdf:type owl:Class ;
+            rdfs:label "Rack"@en ;
+            rdfs:comment "Represents a physical rack in the Cineca M100 system."@en .
+#  Class 2: Node
+m100:Node rdf:type owl:Class ;
+            rdfs:label "Node"@en ;
+            rdfs:comment "Represents a compute node within a rack."@en .
+#  Class 3: Plugin
+m100:Plugin rdf:type owl:Class ;
+            rdfs:label "Plugin"@en ;
+            rdfs:comment "Represents a plugin of the M100 system"@en .
+#  Class 4: Job
+m100:Job rdf:type owl:Class ;
+            rdfs:label "Job"@en ;
+            rdfs:comment "Represents a computational job executed on compute nodes"@en .
+#  Class 5: Sensor
+m100:Sensor rdf:type owl:Class ;
+            rdfs:label "Sensor"@en ;
+            rdfs:comment "Represents a sensor device associated with a plugin"@en .
+#  Class 6: SensorReading
+m100:SensorReading rdf:type owl:Class ;
+            rdfs:label "SensorReading"@en ;
+            rdfs:comment "Represents a reading from a sensor, capturing a specific data point."@en .
+#  Class 7: DataRecord
+m100:DataRecord rdf:type owl:Class ;
+            rdfs:label "DataRecord"@en ;
+            rdfs:comment "Represents a record of data collected over a period."@en .
+#  Class 8: Position
+m100:Position rdf:type owl:Class ;
+            rdfs:label "Position"@en ;
+            rdfs:comment "Represents the physical position (three-dimensional co-ordinates) of a compute node"@en .
+
+###  Object Property Definitions (Number of Property 8)  ###
+
+#  Object Property: HasNode
+m100:HasNode rdf:type owl:ObjectProperty ;
+            rdfs:label "HasNode"@en ;
+            rdfs:domain m100:Rack ;
+            rdfs:range m100:Node ;
+            rdfs:comment "Indicates that a rack has a node."@en .
+#  Object Property: IsNodeOf
+m100:IsNodeOf rdf:type owl:ObjectProperty ;
+            rdfs:label "IsNodeOf"@en ;
+            rdfs:domain m100:Node ;
+            rdfs:range m100:Rack ;
+            rdfs:comment "Indicates that a node is part of a rack."@en ;
+            owl:inverseOf m100:HasNode .
+#  Object Property: HasPlugin
+m100:HasPlugin rdf:type owl:ObjectProperty ;
+            rdfs:label "HasPlugin"@en ;
+            rdfs:domain m100:Node ;
+            rdfs:range m100:Plugin ;
+            rdfs:comment "Indicates that a node has a plugin."@en .
+#  Object Property: HasSensor
+m100:HasSensor rdf:type owl:ObjectProperty ;
+            rdfs:label "HasSensor"@en ; 
+            rdfs:domain m100:Plugin ;
+            rdfs:range m100:Sensor ;
+            rdfs:comment "Indicates that a plugin has a sensor device associated with it."@en .
+#  Object Property: HasReading
+m100:HasReading rdf:type owl:ObjectProperty ;
+            rdfs:label "HasReading"@en ;
+            rdfs:domain m100:Sensor ;
+            rdfs:range m100:SensorReading ;
+            rdfs:comment "Indicates that a sensor has sensor readings that it measured."@en .
+#  Object Property: IsPartOf
+m100:IsPartOf rdf:type owl:ObjectProperty ;
+            rdfs:label "IsPartOf"@en ;
+            rdfs:domain m100:SensorReading ;
+            rdfs:range m100:DataRecord ;
+            rdfs:comment "Indicates which sensor reading is part of which specific data record."@en .
+#  Object Property: UsesNode
+m100:UsesNode rdf:type owl:ObjectProperty ;
+            rdfs:label "UsesNode"@en ;
+            rdfs:domain m100:Job ;
+            rdfs:range m100:Node ;
+            rdfs:comment "Indicates the nodes being used by a compute job"@en .
+#  Object Property: HasPosition
+m100:HasPosition rdf:type owl:ObjectProperty ;
+            rdfs:label "HasPosition"@en ;
+            rdfs:domain m100:Node ;
+            rdfs:range m100:Position ;
+	        rdfs:comment "Indicates that the compute node has a position"@en .
+
+###  Datatype Property Definitions (Number of Property 17)  ###
+
+#  Datatype Property: rackId
+m100:rackId rdf:type owl:DatatypeProperty ;
+            rdfs:label "rackId"@en ;
+            rdfs:domain m100:Rack ;
+            rdfs:range xsd:integer ;
+            rdfs:comment "Represents the identifier for a rack."@en .
+#  Datatype Property: nodeId
+m100:nodeId rdf:type owl:DatatypeProperty ;
+            rdfs:label "nodeId"@en ;
+            rdfs:domain m100:Node ;
+            rdfs:range xsd:integer ;
+            rdfs:comment "Represents the identifier for a node."@en .
+#  Datatype Property: pluginName
+m100:pluginName rdf:type owl:DatatypeProperty ;
+            rdfs:label "pluginName"@en ;
+            rdfs:domain m100:Plugin ;
+            rdfs:range xsd:string ;
+            rdfs:comment "Represents the name of a plugin."@en .
+#  Datatype Property: sensorName
+m100:sensorName rdf:type owl:DatatypeProperty ;
+            rdfs:label "sensorName"@en ;
+            rdfs:domain m100:Sensor ;
+            rdfs:range xsd:string ;
+            rdfs:comment "Represents the name of a sensor device."@en .
+#  Datatype Property: sensorType
+m100:sensorType rdf:type owl:DatatypeProperty ;
+            rdfs:label "sensorType"@en ;
+            rdfs:domain m100:Sensor ;
+            rdfs:range xsd:string ;
+            rdfs:comment "Represents the type of a sensor device."@en .
+#  Datatype Property: posX
+m100:posX rdf:type owl:DatatypeProperty ;
+            rdfs:label "posX"@en ;
+            rdfs:domain m100:Position ;
+            rdfs:range xsd:integer ;
+            rdfs:comment "Represents the position of a compute node along the X-axis"@en .
+#  Datatype Property: posY
+m100:posY rdf:type owl:DatatypeProperty ;
+            rdfs:label "posY"@en ; 
+            rdfs:domain m100:Position ;
+            rdfs:range xsd:integer ;
+            rdfs:comment "Represents the position of a compute node along the Y-axis"@en .
+#  Datatype Property: posZ
+m100:posZ rdf:type owl:DatatypeProperty ;
+            rdfs:label "posZ"@en ;
+            rdfs:domain m100:Position ;
+            rdfs:range xsd:integer ;
+            rdfs:comment "Represents the position of a compute node along the Z-axis"@en .
+#  Datatype Property: value
+m100:value rdf:type owl:DatatypeProperty ;
+            rdfs:label "value"@en ;
+            rdfs:domain m100:SensorReading ;
+            rdfs:range xsd:double ;
+            rdfs:comment "Represents the value of a sensor reading."@en .
+#  Datatype Property: timestamp
+m100:timestamp rdf:type owl:DatatypeProperty ;
+            rdfs:label "timestamp"@en ;
+            rdfs:domain m100:SensorReading ;
+            rdfs:range xsd:dateTime ;
+            rdfs:comment "Represents the timestamp of a sensor reading."@en .
+#  Datatype Property: unit
+m100:unit rdf:type owl:DatatypeProperty ;
+            rdfs:label "unit"@en ;
+            rdfs:domain m100:SensorReading ;
+            rdfs:range xsd:string ;
+            rdfs:comment "Represents the unit of measurement for a sensor reading."@en .
+#  Datatype Property: fileName
+m100:fileName rdf:type owl:DatatypeProperty ;
+            rdfs:label "fileName"@en ;
+            rdfs:domain m100:DataRecord ;
+            rdfs:range xsd:string ;
+            rdfs:comment "Represents the name of the data record file."@en .
+#  Datatype Property: startTimestamp
+m100:startTimestamp rdf:type owl:DatatypeProperty ;
+            rdfs:label "startTimestamp"@en ;
+            rdfs:domain m100:DataRecord ;
+            rdfs:range xsd:dateTime ;
+            rdfs:comment "Represents the start timestamp of a data record file."@en .
+#  Datatype Property: endTimestamp
+m100:endTimestamp rdf:type owl:DatatypeProperty ;
+            rdfs:label "endTimestamp"@en ;
+            rdfs:domain m100:DataRecord ;
+            rdfs:range xsd:dateTime ;
+            rdfs:comment "Represents the end timestamp of a data record file."@en .
+#  Datatype Property: jobId
+m100:jobId rdf:type owl:DatatypeProperty ;
+            rdfs:label "jobId"@en ;
+            rdfs:domain m100:Job ;
+            rdfs:range xsd:integer ;
+            rdfs:comment "Represents the identifier for a submitted computational job."@en .
+#  Datatype Property: startTime
+m100:startTime rdf:type owl:DatatypeProperty ;
+            rdfs:label "startTime"@en ;
+            rdfs:domain m100:Job ;
+            rdfs:range xsd:dateTime ;
+            rdfs:comment "Represents the start time of a submitted computational job."@en .
+#  Datatype Property: endTime
+m100:endTime rdf:type owl:DatatypeProperty ;
+            rdfs:label "endTime"@en ;
+            rdfs:domain m100:Job ;
+            rdfs:range xsd:dateTime ;
+            rdfs:comment "Represents the end time of a submitted computational job."@en .
