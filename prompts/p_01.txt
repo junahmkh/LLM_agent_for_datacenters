@@ -1,0 +1,1 @@
+give me all the nodes present in rack 1

@@ -1,0 +1,1 @@
+what is the min, max and avg temperature of node 5 when it is in use during the month of may 2022?
