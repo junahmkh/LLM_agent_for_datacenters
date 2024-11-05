@@ -1,0 +1,23 @@
+Prompt 3: Calculate average job power for the job id 1000882
+
+SPARQL Query:
+PREFIX m100: <http://cineca.com/exadata/m100/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT (AVG(?powerValue) AS ?averagePower)
+WHERE {
+  ?job a m100:Job;
+      m100:jobId "1000882"^^xsd:integer;
+      m100:UsesNode ?node;
+     	m100:startTime ?startTime ;
+    	m100:endTime ?endTime .
+  ?node m100:HasPlugin ?plugin;
+    	m100:nodeId ?nodeID .
+  ?plugin m100:HasSensor ?sensor.
+  ?sensor m100:sensorName 'total_power'.
+  ?sensor m100:HasReading ?reading .
+    
+  ?reading m100:value ?powerValue ;
+           m100:timestamp ?timestamp .
+ FILTER(?timestamp >= ?startTime && ?timestamp <= ?endTime)
+}

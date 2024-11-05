@@ -1,0 +1,13 @@
+Prompt 4: How many jobs are running in the node with node id 5, between the time period of "2022-05-01T00:00:00Z" and "2022-05-31T23:59:59Z"
+
+SPARQL Query:
+PREFIX m100: <http://cineca.com/exadata/m100/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT (COUNT(DISTINCT?job) as ?numJobs)
+WHERE {
+ ?job m100:UsesNode ?node.
+ ?job m100:startTime ?start.
+ ?node m100:nodeId 5.
+ FILTER (?start >= "2022-05-01T00:00:00Z"^^xsd:dateTime && ?start <= "2022-05-31T23:59:59Z"^^xsd:dateTime)
+}

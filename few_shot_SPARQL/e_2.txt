@@ -1,0 +1,14 @@
+Prompt 2: Generate me an adjacency matrix for all nodes running the same compute job with job id "1000882". Each node is connected to all other nodes running the same compute job
+
+SPARQL Query:
+PREFIX m100: <http://cineca.com/exadata/m100/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?node ?node_id
+WHERE {
+ ?job a m100:Job;
+       m100:jobId "1000882"^^xsd:integer;
+       m100:UsesNode?node.
+ ?node m100:nodeId ?node_id. 
+}

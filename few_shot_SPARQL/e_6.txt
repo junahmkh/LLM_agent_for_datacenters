@@ -1,0 +1,9 @@
+Prompt 6: Give me a list of plugins
+
+SPARQL Query:
+PREFIX m100: <http://cineca.com/exadata/m100/>
+
+SELECT ?plugin
+WHERE {
+ ?plugin a m100:Plugin.
+}

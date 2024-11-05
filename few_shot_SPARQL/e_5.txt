@@ -1,0 +1,11 @@
+Prompt 5: give me all the nodes present in rack 1
+
+SPARQL Query:
+PREFIX m100: <http://cineca.com/exadata/m100/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT?node
+WHERE {
+ ?rack m100:rackId 1.
+ ?rack m100:HasNode ?node.
+}

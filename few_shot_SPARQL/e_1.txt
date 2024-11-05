@@ -1,0 +1,13 @@
+Prompt 1: Give me the three dimensional position of all nodes
+
+SPARQL Query:
+PREFIX m100: <http://cineca.com/exadata/m100/>
+
+SELECT ?rack ?node ?posX ?posY ?posZ
+WHERE {
+ ?rack m100:HasNode ?node.
+ ?node m100:HasPosition ?position.
+ ?position m100:posX ?posX.
+ ?position m100:posY ?posY.
+ ?position m100:posZ ?posZ.
+}
