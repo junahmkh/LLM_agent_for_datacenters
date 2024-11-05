@@ -1,0 +1,165 @@
+﻿Metric,Unit,Value type
+Alm_TY141,pure number,int
+PLC_PLC_Q101.Abilita_inverter,pure number,int
+PLC_PLC_Q101.Abilita_valvola1,pure number,int
+PLC_PLC_Q101.Abilita_valvola2,pure number,int
+PLC_PLC_Q101.Allarme_on,pure number,int
+PLC_PLC_Q101.Allarme_presente,,int
+PLC_PLC_Q101.Alm_inverter_p101,,int
+PLC_PLC_Q101.Alm_inverter_p102,,int
+PLC_PLC_Q101.Alm_inverter_p103,,int
+PLC_PLC_Q101.Alm_inverter_p104,,int
+PLC_PLC_Q101.Alm_max_portata,,int
+PLC_PLC_Q101.Alm_max_t_mandata,,int
+PLC_PLC_Q101.Alm_max_t_ritorno,,int
+PLC_PLC_Q101.Alm_min_portata,,int
+PLC_PLC_Q101.Alm_min_t_mandata,,int
+PLC_PLC_Q101.Alm_nostart_p101,,int
+PLC_PLC_Q101.Alm_nostart_p102,,int
+PLC_PLC_Q101.Alm_nostart_p103,,int
+PLC_PLC_Q101.Alm_nostart_p104,,int
+PLC_PLC_Q101.Alm_w1,,int
+PLC_PLC_Q101.Cmd_valvola_1,,int
+PLC_PLC_Q101.Cmd_valvola_2,,int
+PLC_PLC_Q101.Delta_temp,°C (x10),int
+PLC_PLC_Q101.Diff_minuti_cavedio,minutes,int
+PLC_PLC_Q101.Diff_minuti_quadro,minutes,int
+PLC_PLC_Q101.Diff_minuti_sala,minutes,int
+PLC_PLC_Q101.In_marcia_p101,,int
+PLC_PLC_Q101.In_marcia_p102,,int
+PLC_PLC_Q101.In_marcia_p103,,int
+PLC_PLC_Q101.In_marcia_p104,,int
+PLC_PLC_Q101.Kp_pid_pompe,,int
+PLC_PLC_Q101.Kp_pid_valvole,,int
+PLC_PLC_Q101.Manuale_p101,,int
+PLC_PLC_Q101.Manuale_p102,,int
+PLC_PLC_Q101.Manuale_p103,,int
+PLC_PLC_Q101.Manuale_p104,,int
+PLC_PLC_Q101.Manuale_ty141,,int
+PLC_PLC_Q101.Manuale_ty142,,int
+PLC_PLC_Q101.Max_ana_out_ty141,,int
+PLC_PLC_Q101.Max_ana_out_ty142,,int
+PLC_PLC_Q101.Max_ana_portata1,,int
+PLC_PLC_Q101.Max_ana_portata2,,int
+PLC_PLC_Q101.Max_ana_pos_ty141,,int
+PLC_PLC_Q101.Max_ana_pos_ty142,,int
+PLC_PLC_Q101.Max_portata,m3/h (x10),int
+PLC_PLC_Q101.Max_t_mandata,°C (x10),int
+PLC_PLC_Q101.Max_t_ritorno,°C (x10),int
+PLC_PLC_Q101.Max_visi_portata2,,int
+PLC_PLC_Q101.Max_visu_portata1,,int
+PLC_PLC_Q101.Min_ana_out_ty141,,int
+PLC_PLC_Q101.Min_ana_out_ty142,,int
+PLC_PLC_Q101.Min_ana_portata1,,int
+PLC_PLC_Q101.Min_ana_portata2,,int
+PLC_PLC_Q101.Min_ana_pos_ty141,,int
+PLC_PLC_Q101.Min_ana_pos_ty142,,int
+PLC_PLC_Q101.Min_lavoro_p101,minutes,int
+PLC_PLC_Q101.Min_lavoro_p102,minutes,int
+PLC_PLC_Q101.Min_lavoro_p103,minutes,int
+PLC_PLC_Q101.Min_lavoro_p104,minutes,int
+PLC_PLC_Q101.Min_lavoro_quadro,minutes,int
+PLC_PLC_Q101.Min_out_pid_pompe,minutes,int
+PLC_PLC_Q101.Min_out_pid_valv,minutes,int
+PLC_PLC_Q101.Min_parz_p101,minutes,int
+PLC_PLC_Q101.Min_parz_p102,minutes,int
+PLC_PLC_Q101.Min_parz_p103,minutes,int
+PLC_PLC_Q101.Min_parz_p104,minutes,int
+PLC_PLC_Q101.Min_parziali_p101,minutes,int
+PLC_PLC_Q101.Min_parziali_p102,minutes,int
+PLC_PLC_Q101.Min_parziali_p103,minutes,int
+PLC_PLC_Q101.Min_parziali_p104,minutes,int
+PLC_PLC_Q101.Min_parziali_quadro,minutes,int
+PLC_PLC_Q101.Min_portata,m3/h (x10),int
+PLC_PLC_Q101.Min_t_mandata,°C (x10),int
+PLC_PLC_Q101.Min_vel_pompe,°C (x10),int
+PLC_PLC_Q101.Min_visu_portata1,,int
+PLC_PLC_Q101.Min_visu_portata2,,int
+PLC_PLC_Q101.Ore_lavoro_p101,hours,int
+PLC_PLC_Q101.Ore_lavoro_p102,hours,int
+PLC_PLC_Q101.Ore_lavoro_p103,hours,int
+PLC_PLC_Q101.Ore_lavoro_p104,hours,int
+PLC_PLC_Q101.Ore_parziali_p101,hours,int
+PLC_PLC_Q101.Ore_parziali_p102,hours,int
+PLC_PLC_Q101.Ore_parziali_p103,hours,int
+PLC_PLC_Q101.Ore_parziali_p104,hours,int
+PLC_PLC_Q101.Out_pid_pompe,,int
+PLC_PLC_Q101.Out_pid_val,,int
+PLC_PLC_Q101.P101_fault,,int
+PLC_PLC_Q101.P101_in_marcia,,int
+PLC_PLC_Q101.P102_fault,,int
+PLC_PLC_Q101.P102_in_marcia,,int
+PLC_PLC_Q101.P103_fault,,int
+PLC_PLC_Q101.P103_in_marcia,,int
+PLC_PLC_Q101.P104_fault,,int
+PLC_PLC_Q101.P104_in_marcia,,int
+PLC_PLC_Q101.Pb_arresto_p101,,int
+PLC_PLC_Q101.Pb_arresto_p102,,int
+PLC_PLC_Q101.Pb_arresto_p103,,int
+PLC_PLC_Q101.Pb_arresto_p104,,int
+PLC_PLC_Q101.Pb_marcia_p101,,int
+PLC_PLC_Q101.Pb_marcia_p102,,int
+PLC_PLC_Q101.Pb_marcia_p103,,int
+PLC_PLC_Q101.Pb_marcia_p104,,int
+PLC_PLC_Q101.Portata_1,m3/h (x50),int
+PLC_PLC_Q101.Portata_1_hmi,m3/h (x10),int
+PLC_PLC_Q101.Portata_2,m3/h (x50),int
+PLC_PLC_Q101.Portata_2_hmi,m3/h (x10),int
+PLC_PLC_Q101.Portata_attiva,m3/h (x10),int
+PLC_PLC_Q101.Pos_valvola1,% (x100),int
+PLC_PLC_Q101.Pos_valvola_2,% (x100),int
+PLC_PLC_Q101.Posizione_ty141,%,int
+PLC_PLC_Q101.Posizione_ty142,%,int
+PLC_PLC_Q101.Rif_auto_attivo,%,int
+PLC_PLC_Q101.Rif_auto_p101,%,int
+PLC_PLC_Q101.Rif_auto_p102,%,int
+PLC_PLC_Q101.Rif_auto_ty141,%,int
+PLC_PLC_Q101.Rif_auto_ty142,%,int
+PLC_PLC_Q101.Rif_inverter,% (x100),int
+PLC_PLC_Q101.Rif_man_p101,%,int
+PLC_PLC_Q101.Rif_man_p102,%,int
+PLC_PLC_Q101.Rif_man_ty141,%,int
+PLC_PLC_Q101.Rif_man_ty142,%,int
+PLC_PLC_Q101.Sel_misuratore,,int
+PLC_PLC_Q101.Set_man_pid_pompe,% (x100),int
+PLC_PLC_Q101.Set_man_pid_valv,% (x100),int
+PLC_PLC_Q101.Set_temperatura,°C (x10),int
+PLC_PLC_Q101.Start_impianto,,int
+PLC_PLC_Q101.Start_p101,,int
+PLC_PLC_Q101.Start_p102,,int
+PLC_PLC_Q101.Start_p103,,int
+PLC_PLC_Q101.Start_p104,,int
+PLC_PLC_Q101.Stato_p101,,int
+PLC_PLC_Q101.Stato_p102,,int
+PLC_PLC_Q101.Stato_p103,,int
+PLC_PLC_Q101.Stato_p104,,int
+PLC_PLC_Q101.Stato_quadro,,int
+PLC_PLC_Q101.Status_w1,,int
+PLC_PLC_Q101.Status_w2,,int
+PLC_PLC_Q101.T_mandata_hmi,°C (x10),int
+PLC_PLC_Q101.T_ritorno_hmi,°C (x10),int
+PLC_PLC_Q101.T_scambio_cavedio,°C,int
+PLC_PLC_Q101.T_scambio_quadri,°C,int
+PLC_PLC_Q101.T_scambio_sala,°C,int
+PLC_PLC_Q101.Td_pid_pompe,,int
+PLC_PLC_Q101.Td_pid_valvole,,int
+PLC_PLC_Q101.Temp_mandata,°C (x10),int
+PLC_PLC_Q101.Temp_ritorno,°C (x10),int
+PLC_PLC_Q101.Ti_pid_pompe,,int
+PLC_PLC_Q101.Ti_pid_valvole,,int
+PLC_PLC_Q101.V_min_rem_cavedio,minutes,int
+PLC_PLC_Q101.V_min_rem_quadro,minutes,int
+PLC_PLC_Q101.V_min_rem_sala,minutes,int
+PLC_PLC_Q101.V_ore_parz_p101,Hours,int
+PLC_PLC_Q101.V_ore_parz_p102,Hours,int
+PLC_PLC_Q101.V_ore_parz_p103,Hours,int
+PLC_PLC_Q101.V_ore_parz_p104,Hours,int
+PLC_PLC_Q101.V_ore_parz_quadro,Hours,int
+PLC_PLC_Q101.V_ore_rem_cavedio,Hours,int
+PLC_PLC_Q101.V_ore_rem_quadro,Hours,int
+PLC_PLC_Q101.V_ore_rem_sala,Hours,int
+PLC_PLC_Q101.V_ore_tot_p101,Hours,int
+PLC_PLC_Q101.V_ore_tot_p102,Hours,int
+PLC_PLC_Q101.V_ore_tot_p103,Hours,int
+PLC_PLC_Q101.V_ore_tot_p104,Hours,int
+PLC_PLC_Q101.V_ore_tot_quadro,Hours,int

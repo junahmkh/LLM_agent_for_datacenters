@@ -1,0 +1,26 @@
+﻿Metric,Unit,Value type
+Actual_Return_Air_Temperature_Set_Point,°C,float
+Actual_Return_Humidity_Set_Point,%RH,float
+Adjusted_Humidity,%,float
+Compressor_Utilization,%,float
+Dehumidifier_Utilization,%,float
+Ext_Air_Sensor_A_Humidity,%RH,float
+Ext_Air_Sensor_A_Temperature,°C,float
+Ext_Air_Sensor_B_Humidity,%RH,float
+Ext_Air_Sensor_B_Temperature,°C,float
+Ext_Air_Sensor_C_Humidity,%RH,float
+Ext_Air_Sensor_C_Temperature,°C,float
+Fan_Speed,%,float
+Filter_Pressure_Drop,Pa,float
+Free_Cooling_Fluid_Temperature,°C,float
+Free_Cooling_Status,_,float
+Free_Cooling_Valve_Open_Position,%,float
+Hot_Water___Hot_Gas_Valve_Open_Position,%,float
+Humidifier_Utilization,%,float
+Humidity_Set_Point,%RH,float
+Reheat_Utilization,%,float
+Return_Air_Temperature,°C,float
+Return_Humidity,%RH,float
+Supply_Air_Temperature,°C,float
+Supply_Air_Temperature_Set_Point,°C,float
+Underflow_Static_Pressure,Pa,float

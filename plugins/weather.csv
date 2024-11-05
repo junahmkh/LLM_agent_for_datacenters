@@ -1,0 +1,11 @@
+﻿Metric,Unit,Value type
+clouds,%,int
+dew_point,°C,float
+feels_like,°C,float
+humidity,%,int
+pressure,hPa,int
+temp,°C,float
+uvi,,float
+visibility,m,int
+wind_deg,deg,int
+wind_speed,m/s,float
