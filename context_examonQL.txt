@@ -1,0 +1,174 @@
+### Key Points and Instructions to generate ExamonQL query implementations
+
+1. **Understand the ExamonQL Syntax and Functions**:
+    - **SELECT**: Used to select specific columns from a table.
+    - **FROM**: Specifies the table from which to select data.
+    - **WHERE**: Adds conditions to filter the data.
+    - **TSTART and TSTOP**: Define the time range for querying data.
+    - **DESCRIBE**: Retrieves metadata such as available plugins or sensors.
+
+2. **Setup and Configuration**:
+    - Ensure the appropriate job tables or metrics tables are added using `sq.jc.JOB_TABLES.add('table_name')`.
+    - Use `sq.SELECT('*')` or specify columns explicitly to query data.
+    - For executing queries, use `.execute()` and handle the result with appropriate libraries like pandas.
+
+3. **Querying Job Information**:
+    - Example for querying job information:
+      ```python
+      sq.jc.JOB_TABLES.add('job_info_marconi100')
+      data = sq.SELECT('*').FROM('job_info_marconi100').WHERE(job_id='1000882').TSTART("01-01-2000 00:00:00").execute()
+      df = pd.read_json(data)
+      ```
+
+4. **Correct Timestamp Format**:
+    - Convert timestamps to the desired format using Python's `datetime` library.
+    - Example function:
+      ```python
+      from datetime import datetime
+      def correct_TS_format(ts):
+          ts = ts.split("+")[0]
+          ts = datetime.strptime(ts, '%Y-%m-%d %H:%M:%S')
+          ts = ts.strftime('%d-%m-%Y %H:%M:%S')
+          return ts
+      ```
+
+5. **Querying Metrics Data**:
+    - Example for querying metric data for a specific node:
+      ```python
+      def get_metric_data(node_to_get, metric, start_time, end_time):
+          data = sq.SELECT('*').FROM(metric).WHERE(node=node_to_get).TSTART(str(start_time)).TSTOP(str(end_time)).execute()
+          value = data.df_table['value']
+          return value
+      ```
+
+6. **Handling JSON Results**:
+    - Convert JSON results to a pandas DataFrame for easier data manipulation:
+      ```python
+      df = pd.read_json(data)
+      ```
+
+7. **Iterate and Process Data**:
+    - Example for processing a list of nodes:
+      ```python
+      nodes = df['cpus_alloc_layout'][0]
+      for node in nodes:
+          # Process each node
+      ```
+
+8. **Count and Aggregate Data**:
+    - Example for counting occurrences:
+      ```python
+      count = 0
+      for node in nodes:
+          if node == node_to_check:
+              count += 1
+      print(f"Number of jobs running on node {node_to_check}: {count}")
+      ```
+
+9. **Describe Metadata**:
+    - Retrieve metadata such as plugins:
+      ```python
+      df = sq.DESCRIBE(tag_key='plugin').execute()
+      print(df)
+      ```
+
+### Using Multiple Queries
+
+For some prompts you would required to do multiple queries to get the final answer to the prompt
+
+#### Example Scenario: Calculating Average Job Power
+
+When calculating the average job power, multiple queries are required because you need to access information from different tables (e.g., job information and metric data) to compute the final result. Here’s how you can approach it:
+
+1. **Query Job Information**:
+   - Fetch job information including job ID, nodes allocated, and time range.
+   - Example function:
+     ```python
+     def get_job_info(jobId):
+         sq.jc.JOB_TABLES.add('job_info_marconi100')
+         data = sq.SELECT('*').FROM('job_info_marconi100').WHERE(job_id=jobId).TSTART("01-01-2000 00:00:00").execute()
+         df = pd.read_json(data)
+         return df
+     ```
+
+2. **Extract Nodes and Time Range**:
+   - Retrieve allocated nodes and convert timestamps to the correct format.
+   - Example function:
+     ```python
+     def extract_nodes_and_time_range(df):
+         nodes = df['cpus_alloc_layout'][0]
+         start_time = correct_TS_format(str(df['start_time'][0]))
+         end_time = correct_TS_format(str(df['end_time'][0]))
+         return nodes, start_time, end_time
+     ```
+
+3. **Query Metric Data for Each Node**:
+   - Retrieve metric data for each node over the job's runtime.
+   - Example function:
+     ```python
+     def get_metric_data(node_to_get, metric, start_time, end_time):
+         data = sq.SELECT('*').FROM(metric).WHERE(node=node_to_get).TSTART(str(start_time)).TSTOP(str(end_time)).execute()
+         value = data.df_table['value']
+         return value
+     ```
+
+4. **Calculate Average Power**:
+   - Iterate through nodes, fetch metric data, calculate average power for each node, and then compute the overall average.
+   - Example code snippet:
+     ```python
+     df = get_job_info('1000882')
+     nodes, start_time, end_time = extract_nodes_and_time_range(df)
+
+     total_power = 0
+     total_entries = 0
+
+     for node in nodes:
+         metric_data = get_metric_data(node, 'total_power', start_time, end_time)
+         avg = metric_data.mean()  # Use pandas mean method for better performance
+         total_power += avg * len(metric_data)
+         total_entries += len(metric_data)
+
+     overall_avg_power = total_power / total_entries if total_entries > 0 else 0
+     print(f"Overall Average Power for Job 1000882: {overall_avg_power}")
+     ```
+
+### Key Points for Using Multiple Queries
+
+1. **Need for Multiple Queries**:
+    - Multiple queries are necessary when you need to gather data from different tables or data sources to compute the final result.
+    - For example, fetching job information from one table and metric data from another to calculate average job power.
+
+2. **Structured Approach**:
+    - Plan and structure your queries to first fetch necessary metadata or information, then process and aggregate data as required.
+
+3. **Data Integration**:
+    - Integrate data from multiple sources using functions to ensure clarity and maintainability of the code.
+
+4. **Performance Considerations**:
+    - Optimize queries and data handling to ensure efficient processing, especially when dealing with large datasets or complex queries.
+
+5. **Result Aggregation**:
+    - Aggregate results from multiple queries to derive meaningful insights or compute final metrics as needed.
+
+By following these key points and structured approach, you can effectively use multiple queries to retrieve and process data from different sources to answer complex prompts in ExamonQL. This ensures clarity, efficiency, and accuracy in data analysis and reporting tasks.
+
+
+### Summarized list of the metrics/sensors and their descriptions:
+1. **ambient**: Temperature at the node inlet
+2. **dimmX_temp**: Temperature of DIMM module X (0-15)
+3. **fanX_Y**: Speed of Fan Y in module X (X=0-3, Y=0-1)
+4. **fan_disk_power**: Power consumption of the disk fan
+5. **gpuX_core_temp**: Core temperature of GPU X (X=0,1,3,4)
+6. **gpuX_mem_temp**: Memory temperature of GPU X (X=0,1,3,4)
+7. **gv100cardX**: Unspecified metric for GV100 card X (X=0-3)
+8. **pX_coreY_temp**: Core temperature Y in CPU socket X (X=0-1, Y=0-23)
+9. **pX_io_power**: Power consumption of I/O subsystem in CPU socket X (X=0-1)
+10. **pX_mem_power**: Power consumption of memory subsystem in CPU socket X (X=0-1)
+11. **pX_power**: Power consumption of CPU socket X (X=0-1)
+12. **pX_vdd_temp**: Voltage regulator temperature in CPU socket X (X=0-1)
+13. **pcie**: Temperature at the PCIExpress slots
+14. **psX_input_power**: Power consumption at the input of power supply X (X=0-1)
+15. **psX_input_voltag**: Voltage at the input of power supply X (X=0-1)
+16. **psX_output_curre**: Current at the output of power supply X (X=0-1)
+17. **psX_output_volta**: Voltage at the output of power supply X (X=0-1)
+18. **total_power**: Total node power consumption
