@@ -26,9 +26,7 @@ We developed the following ontology for ODA, which will serve as the schema for 
 ![Ontology for Operational Data Analytics in Data centers](images/ontologyV1.7.png)
 
 ## Dataset: ExaData
-The ExaData is an open-access dataset that covers 31 months of data collected from the Marconi100 (M100) supercomputer at CINECA. The data is gathered using the ODA monitoring framework called Examon. It includes data from 980 compute nodes, aggregating information from various sources such as job tables, sensor data, and log files. The collected data is stored in a NoSQL database (Cassandra) with a time-series extension (KairosDB).
-
-To interact with the database, a specialized query language, ExamonQL, is employed, utilizing specific parameters and tags for querying. In total, 573 metrics are collected, and the dataset amounts to 49TB of data. This makes it the largest public dataset of its kind within the supercomputing and data center community.
+The ExaData is an open-access dataset that covers 31 months of data collected from the Marconi100 (M100) supercomputer at CINECA. The data is gathered using the ODA monitoring framework called Examon. It includes data from 980 compute nodes, aggregating information from various sources such as job tables, sensor data, and log files. The collected data is stored in a NoSQL database (Cassandra) with a time-series extension (KairosDB). In total, 573 metrics are collected, and the dataset amounts to 49TB of data. This makes it the largest public dataset of its kind within the supercomputing and data center community.
 
 The dataset can be accessed at the following nature article link: https://www.nature.com/articles/s41597-023-02174-3
 
@@ -39,8 +37,11 @@ The following figure outlines the proposed workflow:
 
 The user submits a prompt in natural language, which is then combined with the proposed ODA ontology and a set of few-shot examples to construct the input prompt for the LLM agent. The ODA ontology provides the LLM with the schema of the knowledge graph, while the few-shot examples guide the LLM in generating proper SPARQL queries for ODA. These generated queries are passed to the SPARQL endpoint of a graph database containing the knowledge graph built with the M100 dataset. The query is executed at the endpoint, and the response is returned to the user’s input prompt. 
 
+## Experimental Evaluations
 
-| **No.** | **Prompt**                                                                                  |
+To evaluate the LLM agent, we tested its ability to generate NoSQL/SQLite query code, which is the default method for querying data center ODA data. We created a list of ten archetypal input prompts that a facility manager would regularly use. These archetype prompts are listed below:
+
+| **No.** | **Archetype Prompt**                                                                        |
 |---------|---------------------------------------------------------------------------------------------|
 | 1       | Give me all the nodes present in rack 1                                                     |
 | 2       | Give me a list of all the racks                                                             |
