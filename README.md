@@ -1,4 +1,4 @@
-# LLM_agent_for_datacenters
+# LLM agent for Data Centers
 Project for the Knowledge engineering course at UNIBO by Junaid Ahmed Khan.
 
 Collaborators: Prof. Andrea Bartolini (Supervisor) and Martin Molan.
