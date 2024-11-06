@@ -32,6 +32,14 @@ To interact with the database, a specialized query language, ExamonQL, is employ
 
 The dataset can be accessed at the following nature article link: https://www.nature.com/articles/s41597-023-02174-3
 
+## LLM agent
+
+The following figure outlines the proposed workflow:
+![image](https://github.com/user-attachments/assets/a9501315-253a-4bbb-9a20-3399379d8916)
+
+
+
+
 | **No.** | **Prompt**                                                                                  |
 |---------|---------------------------------------------------------------------------------------------|
 | 1       | Give me all the nodes present in rack 1                                                     |
