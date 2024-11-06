@@ -62,4 +62,4 @@ In contrast, with the proposed workflow, the relationships between different dat
 
 The following table outlines the results of the experiments conducted to evaluate the proposed worklow. We tested three different prompting techniques: (1) Zero-shot (with context), (2) Few-shot (without context), (3) Few-shot (with context).
 
-![Results](images/results/png)
+![Results](images/results.png)
