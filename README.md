@@ -25,7 +25,12 @@ We developed the following ontology for ODA, which will serve as the schema for 
 
 ![Ontology for Operational Data Analytics in Data centers](images/ontologyV1.7.png)
 
-## 
+## Dataset: ExaData
+The ExaData is an open-access dataset that covers 31 months of data collected from the Marconi100 supercomputer at CINECA. The data is gathered using the ODA monitoring framework called Examon. It includes data from 980 compute nodes, aggregating information from various sources such as job tables, sensor data, and log files. The collected data is stored in a NoSQL database (Cassandra) with a time-series extension (KairosDB).
+
+To interact with the database, a specialized query language, ExamonQL, is employed, utilizing specific parameters and tags for querying. In total, 573 metrics are collected, and the dataset amounts to 49TB of data. This makes it the largest public dataset of its kind within the supercomputing and data center community.
+
+The dataset can be accessed at the following nature article link: https://www.nature.com/articles/s41597-023-02174-3
 
 | **No.** | **Prompt**                                                                                  |
 |---------|---------------------------------------------------------------------------------------------|
