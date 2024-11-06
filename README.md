@@ -63,3 +63,17 @@ In contrast, with the proposed workflow, the relationships between different dat
 The following table outlines the results of the experiments conducted to evaluate the proposed worklow. We tested three different prompting techniques: (1) Zero-shot (with context), (2) Few-shot (without context), (3) Few-shot (with context).
 
 ![Results](images/results.png)
+
+#### Zero-shot (with context):
+
+In this configuration, SPARQL generation successfully produced six correct prompts out of ten. However, errors were identified in the following prompts:
+
+- **Prompt 1**: A minor syntax error occurred where an integer literal was incorrectly enclosed as a string.
+- **Prompts 6, 7, and 8**: The LLM failed to follow the logical sequence defined by the ontology (Node → Plugin → Sensor → Sensor Reading; see Section \ref{sec:ontology}), instead jumping directly from Node to Sensor, which resulted in output errors.
+
+In contrast, the NoSQL/SQLite query generation encountered more significant issues. While prompts 4, 5, and 6 were correctly generated, the remaining prompts contained major errors:
+
+- **Prompt 7**: The LLM used an incorrect timestamp format (NoSQL/SQLite query accepts "DD-MM-YYYY HH:MM:SS") and included an erroneous data-fetching statement.
+- **Prompt 8**: Logical errors were present along with the wrong timestamp format, and incorrect aggregation statements for minimum, maximum, and average values were generated.
+- **Prompt 9**: Severe hallucinations occurred, with the LLM creating a non-existent data source.
+- **Prompt 10**: Similar issues to those in prompts 8 and 9 were observed.
