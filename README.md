@@ -63,37 +63,3 @@ In contrast, with the proposed workflow, the relationships between different dat
 The following table outlines the results of the experiments conducted to evaluate the proposed worklow. We tested three different prompting techniques: (1) Zero-shot (with context), (2) Few-shot (without context), (3) Few-shot (with context).
 
 ![Results](images/results.png)
-
-#### Zero-shot (with context):
-
-In this configuration, SPARQL generation successfully produced six correct prompts out of ten. However, errors were identified in the following prompts:
-
-- **Prompt 1**: A minor syntax error occurred where an integer literal was incorrectly enclosed as a string.
-- **Prompts 6, 7, and 8**: The LLM failed to follow the logical sequence defined by the ontology (Node → Plugin → Sensor → Sensor Reading; see Section \ref{sec:ontology}), instead jumping directly from Node to Sensor, which resulted in output errors.
-
-In contrast, the NoSQL/SQLite query generation encountered more significant issues. While prompts 4, 5, and 6 were correctly generated, the remaining prompts contained major errors:
-
-- **Prompt 7**: The LLM used an incorrect timestamp format (NoSQL/SQLite query accepts "DD-MM-YYYY HH:MM:SS") and included an erroneous data-fetching statement.
-- **Prompt 8**: Logical errors were present along with the wrong timestamp format, and incorrect aggregation statements for minimum, maximum, and average values were generated.
-- **Prompt 9**: Severe hallucinations occurred, with the LLM creating a non-existent data source.
-- **Prompt 10**: Similar issues to those in prompts 8 and 9 were observed.
-
-#### Few-shot (without context)
-
-In this configuration, the LLM achieved 90% accuracy for SPARQL generation. This outcome indicates that the LLM can comprehend the underlying structure of the knowledge graph based on the few-shot examples provided. Furthermore, the LLM successfully avoids the error of jumping directly from Node to Sensor Reading, adhering to the correct logical pathway identified in the zero-shot analysis. This improvement results from the LLM learning this explicit pathway from one of the few-shot examples. Only one prompt contained an error, which is detailed as follows:
-
-- **Prompt 9**: The LLM exhibited hallucination by introducing a new entity to answer the query. This entity does not exist in the knowledge graph, leading to an incorrect response. This issue arises because, without the ontology, the LLM lacks grounding in the complete data structure of the knowledge graph. When provided with the ontology, the LLM is better informed and can accurately interpret the data structure.
-
-In contrast, for NoSQL/SQLite query generation, the LLM correctly generated responses for prompts 5, 6, and 7. However, it encountered issues in other prompts, including:
-
-- **Prompts 4 and 9**: The LLM hallucinated by generating incorrect or non-existent data sources.
-- **Prompt 8**: Incorrect data-fetch statements and improper timestamp format were used.
-- **Prompt 10**: Although the LLM correctly identified the data sources, it made a logical error by misclassifying nodes used by jobs as jobs, rather than accurately identifying them as nodes.
-
-#### Few-shot (with context)
-
-In this configuration, the LLM successfully generates all 10 prompts correctly for SPARQL. Since the complete ontology was provided as context to the LLM, it eliminates the error of introducing entities or data sources that do not exist in the knowledge graph. In contrast, the NoSQL/SQLite query generation shows some improvement, but the final accuracy remains at only 57%. While prompts 4, 5, 6, and 7 are correctly implemented, the LLM continues to make logical errors in the remaining prompts. Specifically:
-
-- **Prompt 8**: The query should first access the job table to determine when the node was in use. However, the generated query incorrectly retrieves all sensor metrics for the specified time-period without filtering for job activity.
-- **Prompt 9**: The generated query suffers from hallucinations, introducing non-existent entities into the response.
-- **Prompt 10**: The generated query contains both an incorrect data access statement and an invalid key for Python dictionary access.
