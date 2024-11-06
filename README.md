@@ -12,7 +12,7 @@ Operational Data Analytics (ODA) consists of two main components:
 2. **Monitoring Framework**: This component focuses on analyzing the collected data and providing visualizations to support informed decision-making and ensure efficient facility management.
 The following figure outlines the typical data center facility with ODA:
 
-![Data Center with ODA]datacenter_with_ODA.png)
+![Data Center with ODA](images/datacenter_with_ODA.png)
 ) 
 
 ![Ontology for Operational Data Analytics in Data centers](images/ontologyV1.7.png)
