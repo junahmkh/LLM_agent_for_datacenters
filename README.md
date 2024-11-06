@@ -35,7 +35,7 @@ The dataset can be accessed at the following nature article link: https://www.na
 ## LLM agent
 
 The following figure outlines the proposed workflow:
-![image](https://github.com/user-attachments/assets/a9501315-253a-4bbb-9a20-3399379d8916)
+![LLM-agent: Workflow](images/llm_agent.png)
 
 
 
