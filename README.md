@@ -53,3 +53,8 @@ To evaluate the LLM agent, we tested its ability to generate NoSQL/SQLite query 
 | 8       | What is the min, max, and avg temperature of node 5 when it is in use during May 2022?      |
 | 9       | Give me a list of sensors which are of type "power"                                         |
 | 10      | Give me a list of the jobs running and the nodes they used during the month of May 2022     |
+
+These ten archetype queries are complex, as they require a facility manager or engineer to run multiple subqueries to generate the final desired response. For example, for archetype prompt number 6, the default NoSQL/SQLite ODA practice would involve first querying the job data from the job table. Using this data, the nodes utilized by the specified job ID would be identified. Then, another NoSQL/SQLite query would be needed to query the power metric table and retrieve the average power consumption during the job's duration on the identified nodes.
+
+In contrast, with the proposed workflow, the relationships between different data sources are already established in the ODA knowledge graph, with the schema defined by the ontology. This simplifies querying, making it more efficient than the default NoSQL/SQLite ODA practices.
+
