@@ -58,3 +58,4 @@ These ten archetype queries are complex, as they require a facility manager or e
 
 In contrast, with the proposed workflow, the relationships between different data sources are already established in the ODA knowledge graph, with the schema defined by the ontology. This simplifies querying, making it more efficient than the default NoSQL/SQLite ODA practices.
 
+### Results
