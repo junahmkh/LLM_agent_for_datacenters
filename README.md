@@ -1,7 +1,7 @@
 # LLM agent for Data Centers
-Project for the Knowledge engineering course at UNIBO by Junaid Ahmed Khan.
+Project for the Knowledge engineering course at UNIBO by **Junaid Ahmed Khan**.
 
-Collaborators: Prof. Andrea Bartolini (Supervisor) and Martin Molan.
+Collaborators: **Prof. Andrea Bartolini** (Supervisor) and **Martin Molan**.
 
 ## Introduction
 Data centers have become essential to support the massive computational requirements of large language models (LLMs). As demand grows, so does the need for scalability in these data centers. However, with greater scalability comes increased complexity in managing such facilities. For example, CINECA’s Leonardo supercomputer consists of approximately 5,000 compute nodes and millions of sensors, all within a single facility. To address these challenges, data centers rely on Operational Data Analytics (ODA) practices, which provide insights to streamline management and ensure efficient performance at scale.
