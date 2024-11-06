@@ -1,5 +1,6 @@
-# KG_for_datacenters
+# LLM_agent_for_datacenters
 Project for the Knowledge engineering course at UNIBO
+Collaborators: Prof. Andrea Bartolini (Supervisor) and Martin Molan 
 
 
 ![Ontology for Operational Data Analytics in Data centers](images/ontologyV1.7.png)
