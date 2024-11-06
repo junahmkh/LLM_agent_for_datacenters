@@ -1,5 +1,6 @@
 # LLM_agent_for_datacenters
-Project for the Knowledge engineering course at UNIBO
+Project for the Knowledge engineering course at UNIBO 
+
 Collaborators: Prof. Andrea Bartolini (Supervisor) and Martin Molan 
 
 
