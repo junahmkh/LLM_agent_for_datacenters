@@ -1,9 +1,7 @@
 # LLM_agent_for_datacenters
-Project for the Knowledge engineering course at UNIBO 
+Project for the Knowledge engineering course at UNIBO by Junaid Ahmed Khan.
 
-Student: Junaid Ahmed Khan
-
-Collaborators: Prof. Andrea Bartolini (Supervisor) and Martin Molan 
+Collaborators: Prof. Andrea Bartolini (Supervisor) and Martin Molan.
 
 
 ![Ontology for Operational Data Analytics in Data centers](images/ontologyV1.7.png)
