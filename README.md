@@ -77,3 +77,23 @@ In contrast, the NoSQL/SQLite query generation encountered more significant issu
 - **Prompt 8**: Logical errors were present along with the wrong timestamp format, and incorrect aggregation statements for minimum, maximum, and average values were generated.
 - **Prompt 9**: Severe hallucinations occurred, with the LLM creating a non-existent data source.
 - **Prompt 10**: Similar issues to those in prompts 8 and 9 were observed.
+
+#### Few-shot (without context)
+
+In this configuration, the LLM achieved 90% accuracy for SPARQL generation. This outcome indicates that the LLM can comprehend the underlying structure of the knowledge graph based on the few-shot examples provided. Furthermore, the LLM successfully avoids the error of jumping directly from Node to Sensor Reading, adhering to the correct logical pathway identified in the zero-shot analysis. This improvement results from the LLM learning this explicit pathway from one of the few-shot examples. Only one prompt contained an error, which is detailed as follows:
+
+- **Prompt 9**: The LLM exhibited hallucination by introducing a new entity to answer the query. This entity does not exist in the knowledge graph, leading to an incorrect response. This issue arises because, without the ontology, the LLM lacks grounding in the complete data structure of the knowledge graph. When provided with the ontology, the LLM is better informed and can accurately interpret the data structure.
+
+In contrast, for NoSQL/SQLite query generation, the LLM correctly generated responses for prompts 5, 6, and 7. However, it encountered issues in other prompts, including:
+
+- **Prompts 4 and 9**: The LLM hallucinated by generating incorrect or non-existent data sources.
+- **Prompt 8**: Incorrect data-fetch statements and improper timestamp format were used.
+- **Prompt 10**: Although the LLM correctly identified the data sources, it made a logical error by misclassifying nodes used by jobs as jobs, rather than accurately identifying them as nodes.
+
+#### Few-shot (with context)
+
+In this configuration, the LLM successfully generates all 10 prompts correctly for SPARQL. Since the complete ontology was provided as context to the LLM, it eliminates the error of introducing entities or data sources that do not exist in the knowledge graph. In contrast, the NoSQL/SQLite query generation shows some improvement, but the final accuracy remains at only 57%. While prompts 4, 5, 6, and 7 are correctly implemented, the LLM continues to make logical errors in the remaining prompts. Specifically:
+
+- **Prompt 8**: The query should first access the job table to determine when the node was in use. However, the generated query incorrectly retrieves all sensor metrics for the specified time-period without filtering for job activity.
+- **Prompt 9**: The generated query suffers from hallucinations, introducing non-existent entities into the response.
+- **Prompt 10**: The generated query contains both an incorrect data access statement and an invalid key for Python dictionary access.
