@@ -18,6 +18,9 @@ The following figure outlines the typical data center facility with ODA:
 ## Problem Statement
 Current approaches in data center and HPC data monitoring typically rely on NoSQL databases due to their scalability and ability to handle diverse data sources. However, this approach often results in telemetry data lacking a defined structure and relationships between different data sources. The absence of a clear structure requires domain knowledge of both the data center infrastructure and the collected data to manage it effectively. Furthermore, variability in data management practices across different data centers adds another layer of complexity to data analysis and interpretation.
 
+The components within a data center and their associated data sources inherently demonstrate relationships. For example, there is a direct connection between a submitted job and the compute node it utilizes. To address these challenges and leverage these relationships, we can encode the domain knowledge of data centers using a knowledge graph. This approach allows us to model and understand the intricate relationships between data sources, enabling more efficient data management and analysis.
+
+
 
 
 ![Ontology for Operational Data Analytics in Data centers](images/ontologyV1.7.png)
