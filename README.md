@@ -13,7 +13,11 @@ Operational Data Analytics (ODA) consists of two main components:
 The following figure outlines the typical data center facility with ODA:
 
 ![Data Center with ODA](images/datacenter_with_ODA.png)
-) 
+
+### Problem Statement
+Current approaches in data center and HPC data monitoring typically rely on NoSQL databases due to their scalability and ability to handle diverse data sources. However, this approach often results in telemetry data lacking a defined structure and relationships between different data sources. The absence of a clear structure requires domain knowledge of both the data center infrastructure and the collected data to manage it effectively. Furthermore, variability in data management practices across different data centers adds another layer of complexity to data analysis and interpretation.
+
+
 
 ![Ontology for Operational Data Analytics in Data centers](images/ontologyV1.7.png)
 
