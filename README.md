@@ -10,7 +10,10 @@ Operational Data Analytics (ODA) consists of two main components:
 1. **Collection of Telemetry Data**: This involves gathering detailed telemetry data from the facility, including metrics from compute nodes, sensors, and other critical infrastructure.
 
 2. **Monitoring Framework**: This component focuses on analyzing the collected data and providing visualizations to support informed decision-making and ensure efficient facility management.
+The following figure outlines the typical data center facility with ODA:
 
+![Data Center with ODA](https://github.com/user-attachments/assets/01967207-edd9-4317-a936-ebbb426f3b8d)
+) 
 
 ![Ontology for Operational Data Analytics in Data centers](images/ontologyV1.7.png)
 
