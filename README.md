@@ -62,4 +62,19 @@ In contrast, with the proposed workflow, the relationships between different dat
 
 The following table outlines the results of the experiments conducted to evaluate the proposed worklow. We tested three different prompting techniques: (1) Zero-shot (with context), (2) Few-shot (without context), (3) Few-shot (with context).
 
+| **Prompt** | **Zero-shot (with context)** | **Few-shot (without context)** | **Few-shot (with context)** | **Query execution time at endpoint** |
+|------------|-----------------------------|------------------------------|----------------------------|-------------------------------------|
+|            | **SPARQL** | **NoSQL query / SQLite** | **SPARQL** | **NoSQL query / SQLite** | **SPARQL** | **NoSQL query / SQLite** | **SPARQL** | **NoSQL query / SQLite** |
+| 1          | 0           | -                            | 1            | -                             | 1            | -                             | 77.07 ms   | -                             |
+| 2          | 1           | -                            | 1            | -                             | 1            | -                             | 67.13 ms   | -                             |
+| 3          | 1           | -                            | 1            | -                             | 1            | -                             | 70.15 ms   | -                             |
+| 4          | 1           | 1                            | 1            | 0                             | 1            | 1                             | 47.76 ms   | 19.05 ms                      |
+| 5          | 1           | 1                            | 1            | 1                             | 1            | 1                             | 82.33 ms   | 191.74 ms                     |
+| 6          | 0           | 1                            | 1            | 1                             | 1            | 1                             | 47.03 ms   | 694 ms                        |
+| 7          | 0           | 0                            | 1            | 1                             | 1            | 1                             | 90.21 ms   | 131 s                         |
+| 8          | 0           | 0                            | 1            | 0                             | 1            | 0                             | 2.02 s     | 15120 s                       |
+| 9          | 1           | 0                            | 0            | 0                             | 1            | 0                             | 33.86 ms   | 9.49 ms                       |
+| 10         | 1           | 0                            | 1            | 0                             | 1            | 0                             | 5.53 s     | 133 s                         |
+| **Total correct** | 6           | 3                            | 9            | 3                             | **10**       | 4                             |             |                                 |
+| **% correct**    | 60%         | 43%                          | 90%          | 43%                           | **100%**     | 57%                           |             |                                 |
 
