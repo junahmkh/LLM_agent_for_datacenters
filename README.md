@@ -20,10 +20,12 @@ Current approaches in data center and HPC data monitoring typically rely on NoSQ
 
 The components within a data center and their associated data sources inherently demonstrate relationships. For example, there is a direct connection between a submitted job and the compute node it utilizes. To address these challenges and leverage these relationships, we can encode the domain knowledge of data centers using a knowledge graph. This approach allows us to model and understand the intricate relationships between data sources, enabling more efficient data management and analysis.
 
-
-
+## Ontology for ODA
+We developed the following ontology for ODA, which will serve as the schema for our Knowledge Graph.
 
 ![Ontology for Operational Data Analytics in Data centers](images/ontologyV1.7.png)
+
+## 
 
 | **No.** | **Prompt**                                                                                  |
 |---------|---------------------------------------------------------------------------------------------|
