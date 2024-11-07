@@ -39,7 +39,7 @@ The user submits a prompt in natural language, which is then combined with the p
 
 ## Experimental Evaluation
 
-To evaluate the LLM agent, we tested its ability to generate NoSQL/SQLite query code, which is the default method for querying data center ODA data. We created a list of ten archetypal input prompts that a facility manager would regularly use. These archetype prompts are listed below:
+To evaluate the LLM agent, we tested its ability to generate NoSQL/SQLite query code, which is the default method for querying data center ODA data. We created a list of ten archetype input prompts that a facility manager would regularly use. These archetype prompts are listed below:
 
 | **No.** | **Archetype Prompt**                                                                        |
 |---------|---------------------------------------------------------------------------------------------|
