@@ -37,7 +37,7 @@ The following figure outlines the proposed workflow:
 
 The user submits a prompt in natural language, which is then combined with the proposed ODA ontology and a set of few-shot examples to construct the input prompt for the LLM agent. The ODA ontology provides the LLM with the schema of the knowledge graph, while the few-shot examples guide the LLM in generating proper SPARQL queries for ODA. These generated queries are passed to the SPARQL endpoint of a graph database containing the knowledge graph built with the M100 dataset. The query is executed at the endpoint, and the response is returned to the user’s input prompt. 
 
-## Experimental Evaluations
+## Experimental Evaluation
 
 To evaluate the LLM agent, we tested its ability to generate NoSQL/SQLite query code, which is the default method for querying data center ODA data. We created a list of ten archetypal input prompts that a facility manager would regularly use. These archetype prompts are listed below:
 
