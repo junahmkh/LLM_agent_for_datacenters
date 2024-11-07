@@ -1,0 +1,34 @@
+Prompt 3: How many jobs are running in a particular node 'r205n06', over a time_period = ["01-05-2022 00:00:00","31-05-2022 23:59:59" ]
+
+ExamonQL implementation:
+node_to_check = 'r205n06'
+sq.jc.JOB_TABLES.add('job_info_marconi100')
+
+start_time = "01-05-2022 00:00:00"  # start time
+end_time = "31-05-2022 23:59:59"    # end time
+
+def get_job_info_over_time_period(start_time,end_time):
+    data = sq.SELECT('*').FROM('job_info_marconi100').TSTART(start_time).TSTOP(end_time).execute()
+    # create df of the query result
+    df = pd.read_json(data)
+    return df
+
+df = get_job_info_over_time_period(start_time,end_time)
+
+# get the allocated nodes list
+dict_of_nodes = df['cpus_alloc_layout']
+
+# Initialize an empty list to store all keys
+nodes = []
+
+# Iterate through each dictionary in the list
+for d in dict_of_nodes:
+    if d is not None:
+        nodes.extend(d.keys())
+        
+count = 0
+for node in nodes:
+    if node == node_to_check:
+        count += 1
+
+print(f"Number of jobs running on node {node_to_check} in [{start_time},{end_time}]: {count}")

@@ -1,0 +1,6 @@
+Prompt 4: give me the list of plugins available in Examon
+
+ExamonQL implementation:
+df = sq.DESCRIBE(tag_key = 'plugin').execute()
+
+display(df)

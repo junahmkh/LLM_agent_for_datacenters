@@ -1,0 +1,6 @@
+Prompt 5: give me the list of sensors associated with the plugin "ipmi_pub"
+
+ExamonQL implementation:
+df = sq.DESCRIBE(tag_key = 'plugin', tag_value='ipmi_pub').execute()
+
+display(df)

@@ -1,0 +1,17 @@
+Prompt 1: Generate me an adjacency matrix for all nodes running the same compute job with job id "891572". Each node is connected to all other nodes running the same compute job
+
+ExamonQL implementation:
+jobId = '891572'                          # Job ID to query
+
+# Setup for Marconi100
+sq.jc.JOB_TABLES.add('job_info_marconi100')
+
+data = sq.SELECT('*').FROM('job_info_marconi100').WHERE(job_id=jobId).TSTART("01-01-2000 00:00:00").execute()
+
+# create df of the query result
+df = pd.read_json(data)
+"""
+print the values of the "cpus_alloc_layout" column which gives the list of
+nodes used by the queried job
+"""
+print(df['cpus_alloc_layout'][0])

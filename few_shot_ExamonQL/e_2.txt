@@ -1,0 +1,40 @@
+Prompt 2: Calculate average job power for the job id 1000882
+
+ExamonQL implementation:
+from datetime import datetime
+def correct_TS_format(ts):
+  ts = ts.split("+")[0]
+  ts = datetime.strptime(ts, '%Y-%m-%d %H:%M:%S')
+  ts = ts.strftime('%d-%m-%Y %H:%M:%S')
+  return ts
+
+def get_metric_data(node_to_get,metric,start_time,end_time):
+  data = sq.SELECT('*').FROM(metric).WHERE(node=node_to_get).TSTART(str(start_time)).TSTOP(str(end_time)).execute()
+  value = data.df_table['value']
+  return value
+
+def get_job_info(jobId):
+  sq.jc.JOB_TABLES.add('job_info_marconi100')
+  data = sq.SELECT('*').FROM('job_info_marconi100').WHERE(job_id=jobId).TSTART("01-01-2000 00:00:00").execute()
+
+  # create df of the query result
+  df = pd.read_json(data)
+
+  return df
+
+jobId = '891572'                          # Job ID to query
+metric = 'total_power'                    # metric to query for this prompt
+
+df = get_job_info(jobId)
+
+# get the allocated nodes list
+dict_of_nodes = df['cpus_alloc_layout'][0]
+nodes = list(dict_of_nodes.keys())
+
+start_time = correct_TS_format(str(df['start_time'][0]))
+end_time = correct_TS_format(str(df['end_time'][0]))
+
+for node in nodes:
+    metric_data = get_metric_data(node, metric, start_time, end_time)
+    avg = metric_data.mean()  # Use pandas mean method for better performance
+    print(f"Node : {node} | metric: {metric} | avg: {avg}")
