@@ -29,6 +29,7 @@ We developed the following ontology for ODA, which will serve as the schema for 
 The ExaData is an open-access dataset that covers 31 months of data collected from the Marconi100 (M100) supercomputer at CINECA. The data is gathered using the ODA monitoring framework called Examon. It includes data from 980 compute nodes, aggregating information from various sources such as job tables, sensor data, and log files. The collected data is stored in a NoSQL database (Cassandra) with a time-series extension (KairosDB). In total, 573 metrics are collected, and the dataset amounts to 49TB of data. This makes it the largest public dataset of its kind within the supercomputing and data center community.
 
 The dataset can be accessed at the following nature article link: https://www.nature.com/articles/s41597-023-02174-3
+For our experiments, we utilized one month of real, in-production data from May 2022.
 
 ## LLM agent
 
